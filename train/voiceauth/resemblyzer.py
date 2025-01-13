@@ -7,8 +7,8 @@ import librosa
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print("Using device:", device)
 
-encoder = VoiceEncoder("cpu")
-train_dir = "./dataset/Raw/SGW"
+encoder = VoiceEncoder(device)
+train_dir = "../../dataset/Raw/SGW"
 embeddings = []
 
 for filename in os.listdir(train_dir):
@@ -19,5 +19,4 @@ for filename in os.listdir(train_dir):
         embeddings.append(emb)
 
 enrolled_embedding = np.mean(embeddings, axis=0)
-np.save("./model/voiceauth/SGW_resemblyzer.npy", enrolled_embedding)
-print("Done. Saved enrolled embedding to ./model/voiceauth/SGW_resemblyzer.npy")
+np.save("../../model/voiceauth/SGW_resemblyzer.npy", enrolled_embedding)

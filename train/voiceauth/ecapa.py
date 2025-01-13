@@ -8,11 +8,11 @@ print("Using device:", device)
 
 spkrec = SpeakerRecognition.from_hparams(
     source="speechbrain/spkrec-ecapa-voxceleb",
-    savedir="resources/pretrained_ecapa",
+    savedir="../../resources/pretrained_ecapa",
     run_opts={"device": device},
 )
 
-train_dir = "./dataset/Raw/SGW"
+train_dir = "../../dataset/Raw/SGW"
 embeddings = []
 
 for filename in os.listdir(train_dir):
@@ -24,5 +24,4 @@ for filename in os.listdir(train_dir):
         embeddings.append(emb_np)
 
 enrolled_embedding = np.mean(embeddings, axis=0)
-np.save("./model/voiceauth/SGW_ECAPA.npy", enrolled_embedding)
-print("Done. Saved enrolled embedding to ./model/voiceauth/SGW_ECAPA.npy")
+np.save("../../model/voiceauth/SGW_ECAPA.npy", enrolled_embedding)
