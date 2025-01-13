@@ -4,9 +4,9 @@ import random
 from collections import defaultdict
 
 # 대상 디렉토리 설정
-input_directory = "../Dataset/Raw"
-train_directory = "../Dataset/Train"
-test_directory = "../Dataset/Test"
+input_directory = "../dataset/Raw"
+train_directory = "../dataset/Train"
+test_directory = "../dataset/Test"
 
 # Train/Test 결과 저장
 results = defaultdict(lambda: {"train": 0, "test": 0})

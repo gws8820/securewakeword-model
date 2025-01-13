@@ -2,8 +2,8 @@ from pydub import AudioSegment
 from pydub.silence import detect_nonsilent
 import os
 
-input_directory = "../Dataset/Raw"
-output_directory = "../Dataset/Raw_Trimmed"
+input_directory = "../dataset/Raw"
+output_directory = "../dataset/Raw_Trimmed"
 
 for root, dirs, files in os.walk(input_directory):
     for file in files:

@@ -5,8 +5,8 @@ import librosa
 from pathlib import Path
 
 encoder = VoiceEncoder("cpu")
-embedding = np.load("../Model/SGW.npy")
-test_dir = "../Dataset/Test"
+embedding = np.load("../../model/voiceauth/SGW_resemblyzer.npy")
+test_dir = "../../dataset/Test"
 
 thresholds = [0.7, 0.71, 0.72, 0.73, 0.74, 0.75, 0.76, 0.77, 0.78, 0.79, 0.8]
 
@@ -30,8 +30,6 @@ for threshold in thresholds:
                 except Exception as e:
                     print(f"Error processing file {test_file}: {e}")
                     continue
-                
-                test_emb = encoder.embed_utterance(wav)
 
                 # 코사인 유사도 계산
                 similarity = np.dot(embedding, test_emb) / (

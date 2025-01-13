@@ -3,7 +3,7 @@ from pydub.effects import normalize
 import os
 
 # 대상 디렉토리 설정
-input_directory = "../Dataset/Raw"
+input_directory = "../dataset/Raw"
 
 # 디렉토리 내 모든 파일 탐색
 for root, dirs, files in os.walk(input_directory):
