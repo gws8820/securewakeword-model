@@ -13,24 +13,24 @@ def get_duration(filepath):
 
 if __name__ == "__main__":
     # 디렉토리 설정
-    model_dir = Path("../../model/wakeword/onnx")
-    positive_dir = Path("../../dataset/Test")
-    negative_dir = Path("../../dataset/Conversation")
+    model_dir = Path("../model/wakeword/onnx")
+    positive_dir = Path("../dataset/Test")
+    negative_dir = Path("../dataset/Conversation")
     
     # 모델 파일 탐색
     model_files = list(model_dir.glob("**/*.onnx"))
     if not model_files:
-        raise FileNotFoundError("No model files found in the '../../Model/onnx' directory.")
+        raise FileNotFoundError("No model files found in the '../Model/onnx' directory.")
     
     # FRR 테스트 파일 로드
     positive_samples = list(positive_dir.glob("**/*.wav"))
     if not positive_samples:
-        raise FileNotFoundError("No test files found in the '../../Dataset/Test' directory.")
+        raise FileNotFoundError("No test files found in the '../Dataset/Test' directory.")
     
     # FAR 테스트 파일 로드 및 문자열로 변환
     negative_samples = list(negative_dir.glob("**/*.wav"))
     if not negative_samples:
-        raise FileNotFoundError("No test files found in the '../../Dataset/Conversation' directory.")
+        raise FileNotFoundError("No test files found in the '../Dataset/Conversation' directory.")
     negative_sample_paths = [str(p) for p in negative_samples]
     
     thresholds = [0.5, 0.4, 0.3, 0.2, 0.1]
