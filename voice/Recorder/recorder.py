@@ -58,7 +58,7 @@ def main():
     repeat = int(input("\n반복 횟수를 입력하세요 (숫자만): "))
 
     duration = 1  # 녹음 시간 (초)
-    samplerate = 44100  # 샘플링 레이트
+    samplerate = 16000  # 샘플링 레이트
     gain = 4.0 # 증폭도
 
     # 키보드 리스너 시작
